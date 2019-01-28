@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>hello-world-styl</title>
+
+</head>
+<body>
+<noscript>
+    <strong>We're sorry but hello-world-styl doesn't work properly without JavaScript enabled. Please enable it to
+        continue.</strong>
+</noscript>
+<div id="app"></div>
+<!-- built files will be auto injected -->
+<script th:if="${buildEnv=='dev'}" src="http://127.0.0.1:9991/static/dist/vendors~app.bundle.js"></script>
+<script th:if="${buildEnv=='dev'}" src="http://127.0.0.1:9991/static/dist/app.bundle.js"></script>
+<script type="text/javascript" src="dist/vendors~app.bundle.5fc4d275e683a1ad51da.js"></script><script type="text/javascript" src="dist/app.bundle.5fc4d275e683a1ad51da.js"></script></body>
+</html>
