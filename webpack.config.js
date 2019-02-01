@@ -16,7 +16,7 @@ module.exports = env => {
     return {
         mode: pro ? 'production' : 'development',
         entry: {
-            app: `${srcPrefix}/main.js`,
+            app: `${srcPrefix}/main.ts`,
         },
         devtool: pro ? 'none' : 'inline-source-map',
         plugins: [
@@ -43,6 +43,7 @@ module.exports = env => {
             }
         },
         resolve: {
+            extensions: ['.ts', '.js', '.vue', '.json'],
             alias: {
                 '@': path.resolve(__dirname, srcPrefix),
                 vue$: 'vue/dist/vue.runtime.esm.js'
@@ -58,6 +59,14 @@ module.exports = env => {
                     test: /\.js$/,
                     // exclude: /node_modules/,
                     loader: "babel-loader"
+                },
+                {
+                    test: /\.tsx?$/,
+                    loader: 'ts-loader',
+                    exclude: /node_modules/,
+                    options: {
+                        appendTsSuffixTo: [/\.vue$/],
+                    }
                 },
                 {
                     test: /\.styl(us)?$/,

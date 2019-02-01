@@ -5,27 +5,47 @@
     </div>
 </template>
 
-<script>
+<script lang="ts">
     // @ is an alias to /src
     import HelloWorld from '@/components/HelloWorld.vue'
-
-    export default {
-        name: 'home',
-        data(){
-            return {
-                test: ' this is test',
-                obj: {...{name: 'test'}}
-            }
+    import Vue from 'vue'
+    import Component from 'vue-class-component'
+    import TestBdMapService from "@/service/bdMap/Test.bdMapService.ts"
+    @Component({
+        props: {
+//            propMessage: String
         },
-        methods: {
-            testF(){
-//                debugger
-                console.log(this.test);
-//                console.log(this.obj.name);
-            }
-        },
-        components: {
+        components:{
             HelloWorld
+        }
+    })
+    export default class App extends Vue {
+        // initial data
+        test:string = ' this is test';
+
+        obj:any = {...{name: 'test'}};
+
+
+
+
+        // lifecycle hook
+        mounted () {
+
+        }
+
+        // computed
+//        get computedMsg () {
+//            return 'computed ' + this.msg
+//        }
+
+        // method
+        testF():void{
+//                debugger
+            console.log(this.test);
+
+            let ts:TestBdMapService = new TestBdMapService("");
+            ts.printName();
+//                console.log(this.obj.name);
         }
     }
 </script>
