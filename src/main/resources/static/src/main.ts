@@ -12,3 +12,8 @@ new Vue({
   render: h => h(App)
 }).$mount('#app')
 
+
+
+$(document).ready(function(){
+    console.log('hello')
+});
