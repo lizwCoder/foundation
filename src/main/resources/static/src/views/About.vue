@@ -7,7 +7,7 @@
 <script>
     // @ is an alias to /src
 
-    import filter from  "@/filter/filterForService"
+    import filter from  "@/filter/filterForService.ts"
 
     import UserInfoHttpService from "@/service/http/UserInfoHttp.service"
 
@@ -29,6 +29,7 @@
         },
         methods:{
             timeAgo(){
+
                 return `${filter('timeAgoDesc')(new Date())}-来自方法` ;
             },
 //            async getUser(){

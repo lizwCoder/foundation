@@ -2,7 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import "@/filter/vueFilter.service"
+import "@/filter/vueFilter.service.ts"
 
 Vue.config.productionTip = false
 
