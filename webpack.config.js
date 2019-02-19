@@ -43,7 +43,7 @@ module.exports = env => {
             }
         },
         resolve: {
-            extensions: ['.ts', '.js', '.vue', '.json'],
+            extensions: ['.js', '.ts', '.vue', '.json'],
             alias: {
                 '@': path.resolve(__dirname, srcPrefix),
                 vue$: 'vue/dist/vue.runtime.esm.js'

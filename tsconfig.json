@@ -7,6 +7,8 @@
     "module": "es2015",
     "moduleResolution": "node",
     "target": "es5",
+//    // 允许从没有设置默认导出的模块中默认导入
+//    "allowSyntheticDefaultImports": true,
     "experimentalDecorators":true,
     "baseUrl": ".",
     "paths": {
