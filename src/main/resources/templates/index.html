@@ -13,8 +13,9 @@
         continue.</strong>
 </noscript>
 <div id="app"></div>
+<div th:replace="lib/commonLib :: commonLib"></div>
 <!-- built files will be auto injected -->
+</body>
 <script th:if="${buildEnv=='dev'}" src="http://127.0.0.1:9991/static/dist/vendors~app.bundle.js"></script>
 <script th:if="${buildEnv=='dev'}" src="http://127.0.0.1:9991/static/dist/app.bundle.js"></script>
-</body>
 </html>

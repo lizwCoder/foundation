@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body >
+<div th:fragment="commonLib">
+    <script th:src="@{${contextPath}+'/libs/jquery/jquery-3.3.1.min.js'}"></script>
+    <script th:src="@{${contextPath}+'/libs/websocket/sockjs.min.js'}"></script>
+    <script th:src="@{${contextPath}+'/libs/websocket/stomp.min.js'}"></script>
+</div>
+</body>
+</html>

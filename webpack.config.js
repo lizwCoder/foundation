@@ -11,7 +11,7 @@ module.exports = env => {
     let resPrefix = './src/main/resources/';
     let srcPrefix = `${resPrefix}/static/src`;
     let templatePrefix = `${resPrefix}/templates`;
-    let distPath = path.resolve(__dirname, `${resPrefix}/static/dist`);
+    let distPath = path.resolve(__dirname, `${resPrefix}/static/src/dist`);
 
     return {
         mode: pro ? 'production' : 'development',
@@ -24,7 +24,7 @@ module.exports = env => {
             new CleanWebpackPlugin([`${distPath}/*`]),
             new HtmlWebpackPlugin(
                 {
-                    filename: `../../templates/dist/index.dist.html`,//相对output中path路径
+                    filename: `../../../templates/dist/index.dist.html`,//相对output中path路径
                     template: `!!html-loader!${templatePrefix}/index.html`,
                     inject: 'body',
                     // hash: true,
@@ -34,7 +34,7 @@ module.exports = env => {
         output: {
             filename: pro ? '[name].bundle.[hash].js' : '[name].bundle.js',
             path: distPath,
-            publicPath: pro ? "dist/" : "http://127.0.0.1:9991/static/dist/"
+            publicPath: pro ? "src/dist/" : "http://127.0.0.1:9991/static/dist/"
         },
         //提取各个入口公共模块
         optimization: {
