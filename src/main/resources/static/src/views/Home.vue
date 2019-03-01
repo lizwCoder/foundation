@@ -9,26 +9,45 @@
 <script lang="ts">
     // @ is an alias to /src
     import HelloWorld from '@/components/HelloWorld.vue'
-    import Vue from 'vue'
-    import Component from 'vue-class-component'
+    // import Vue from 'vue'
+    // import Component from 'vue-class-component'
+    import {Vue, Component, Watch} from 'vue-property-decorator'
     import TestBdMapService from "@/service/bdMap/Test.bdMapService.ts"
+    import {
+        State,
+        Getter,
+        Action,
+        Mutation,
+        namespace
+    } from 'vuex-class'
+
+    const exampleModule = namespace('example')
+    const mState = namespace('example',State)
 
     @Component({
         props: {
 //            propMessage: String
         },
-        components:{
+        components: {
             HelloWorld
         },
     })
     export default class App extends Vue {
+
         // initial data
-        test:string = ' this is test';
+        test: string = ' this is test';
 
         obj = {...{name: 'test'}};
 
+        @mState info;
+        @exampleModule.State(state => state.hello) hello;
+        @exampleModule.Getter('infoStrFromGetter') infoStrFromGetter;
+
+        // @Action('foo') actionFoo
+        @exampleModule.Mutation('updateInfo') updateInfo
+
         // lifecycle hook
-        mounted () {
+        mounted() {
 
         }
 
@@ -37,18 +56,29 @@
 //            return 'computed ' + this.msg
 //        }
 
+        @Watch('obj', {deep: true})
+        onObjChanged(val: object, oldVal: object) {
+            console.log("obj change", val);
+        }
+
         // method
-        testF(){
+        testF() {
 //                debugger
+            console.log(this.info);
+            console.log(this.hello);
+            console.log(this.infoStrFromGetter);
+            this.updateInfo({info:'infoUpdate'});
+            console.log(this.info);
+
+
             console.log(this.test);
 
-
-            let ts:TestBdMapService = new TestBdMapService("");
+            let ts: TestBdMapService = new TestBdMapService("");
 
             ts.printName();
 
 
-            this.test = 'click change';
+            this.obj.name = 'click change';
 
 //                console.log(this.obj.name);
         }

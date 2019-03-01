@@ -1,12 +1,22 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-import store from './store'
-import "@/filter/vueFilter.service.ts"
+import store from './store/index'
+
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+import "@/filter/vueFilter.service"
+
+
+import WebsocketService from "@/service/websocket/Websocket.service"
 
 Vue.config.productionTip = false
 
-new Vue({
+Vue.prototype.$eventHub = Vue.prototype.$eventHub || new Vue();
+
+Vue.use(ElementUI);
+
+let GlobalVueIns = new Vue({
   router,
   store,
   render: h => h(App)
@@ -14,6 +24,13 @@ new Vue({
 
 
 
+
 $(document).ready(function(){
     console.log('hello')
 });
+
+
+
+new WebsocketService(GlobalVueIns.$eventHub);
+
+
