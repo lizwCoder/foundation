@@ -49,6 +49,10 @@ module.exports = env => {
                 vue$: 'vue/dist/vue.runtime.esm.js'
             },
         },
+        externals: {
+            jquery: 'jQuery',
+            echarts: 'echarts'
+        },
         module: {
             rules: [
                 {

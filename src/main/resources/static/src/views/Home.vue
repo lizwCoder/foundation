@@ -3,12 +3,16 @@
         <img alt="Vue logo" src="../assets/logo.png" @click="testF">
         <!--<div style="text-align: center">{{test}}</div>-->
         <HelloWorld msg="Welcome to Your Vue.js App"/>
+        <chart></chart>
     </div>
 </template>
 
 <script lang="ts">
     // @ is an alias to /src
+    import * as _ from "lodash"
+
     import HelloWorld from '@/components/HelloWorld.vue'
+    import Chart from '@/views/Chart'
     // import Vue from 'vue'
     // import Component from 'vue-class-component'
     import {Vue, Component, Watch} from 'vue-property-decorator'
@@ -24,12 +28,13 @@
     const exampleModule = namespace('example')
     const mState = namespace('example',State)
 
+
     @Component({
         props: {
 //            propMessage: String
         },
         components: {
-            HelloWorld
+            HelloWorld,Chart
         },
     })
     export default class App extends Vue {
@@ -48,7 +53,7 @@
 
         // lifecycle hook
         mounted() {
-
+            console.log(_.last([1,2,3]));
         }
 
         // computed

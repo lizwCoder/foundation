@@ -9,6 +9,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "element-ui": "^2.5.4",
+    "lodash": "^4.17.11",
     "vue": "^2.5.21",
     "vue-class-component": "^6.3.2",
     "vue-property-decorator": "^7.3.0",
@@ -19,6 +20,9 @@
   "devDependencies": {
     "@babel/core": "^7.2.0",
     "@babel/preset-env": "^7.2.0",
+    "@types/echarts": "^4.1.4",
+    "@types/jquery": "^3.3.29",
+    "@types/lodash": "^4.14.121",
     "autoprefixer": "^9.4.2",
     "babel-loader": "^8.0.4",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
