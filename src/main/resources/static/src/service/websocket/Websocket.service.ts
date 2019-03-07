@@ -8,15 +8,15 @@ export default class WebsocketService {
     init(){
         let socket = new SockJS('/gs-guide-websocket');
         let stompClient = Stomp.over(socket);
-        stompClient.connect({}, function (frame:any) {
+        stompClient.connect({},  (frame:any) => {
 
             console.log('Connected: ' + frame);
 
-            stompClient.subscribe('/topic/greetings', function (greeting:object) {
+            stompClient.subscribe('/topic/greetings',  (greeting:object) => {
 
                 console.log(greeting);
                 //广播
-                // this.$eventHub.$emit('event type',greeting)
+                this.$eventHub.$emit('event type',greeting)
 
             });
 

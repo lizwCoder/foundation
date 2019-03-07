@@ -3,6 +3,8 @@
     "@babel/preset-env"
   ],
   "plugins": [
-    "syntax-dynamic-import"
+    "syntax-dynamic-import",
+    "@babel/plugin-transform-runtime",
+    "@babel/plugin-transform-async-to-generator"
   ]
 }

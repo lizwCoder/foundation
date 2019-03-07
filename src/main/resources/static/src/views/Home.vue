@@ -3,7 +3,7 @@
         <img alt="Vue logo" src="../assets/logo.png" @click="testF">
         <!--<div style="text-align: center">{{test}}</div>-->
         <HelloWorld msg="Welcome to Your Vue.js App"/>
-        <chart></chart>
+        <!--<chart></chart>-->
     </div>
 </template>
 
@@ -54,6 +54,10 @@
         // lifecycle hook
         mounted() {
             console.log(_.last([1,2,3]));
+
+            this.$eventHub.$on('event type',(data)=>{
+                console.log('message from eventhub',data);
+            })
         }
 
         // computed
